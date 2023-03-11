@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { useReplicantValue } from '../common/useReplicant';
+import '../../tailwind.css';
 
 function Dashboard() {
   const [name, setName] = useReplicantValue<string>('name', undefined, {

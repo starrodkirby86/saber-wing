@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { useOnlyReplicantValue } from '../common/useReplicant';
 import { Name } from './Name';
+import '../../tailwind.css';
 
 function Graphics() {
   const name = useOnlyReplicantValue('name', undefined, { defaultValue: '' });
