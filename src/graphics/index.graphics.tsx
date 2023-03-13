@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import { useOnlyReplicantValue } from '../common/useReplicant';
 import { Name } from './Name';
 import '../../tailwind.css';
+import PoolViewer from './components/PoolViewer/PoolViewer';
+import { Pool } from '../common/types';
+import { SAMPLE_POOL } from '../common/samples';
 
 function Graphics() {
-  const name = useOnlyReplicantValue('name', undefined, { defaultValue: '' });
+  const pool: Pool = useOnlyReplicantValue('pool', undefined, { defaultValue: SAMPLE_POOL });
   return (
     <>
-      <h1>This is the graphics, but React.</h1>
-      <Name name={name || ''} />
+      <h1>Current Pool Standings</h1>
+      <PoolViewer pool={pool} />
     </>
   );
 }
