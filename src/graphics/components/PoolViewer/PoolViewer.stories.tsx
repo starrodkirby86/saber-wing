@@ -7,7 +7,11 @@ export default {
   component: PoolViewer,
 } as Meta;
 
-const Template: Story<PoolViewerProps> = (args) => <PoolViewer {...args} />;
+const Template: Story<PoolViewerProps> = (args) => (
+  <div className='h-5/6'>
+    <PoolViewer {...args} />
+  </div>
+);
 
 export const defaultStory = Template.bind({});
 

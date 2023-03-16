@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import { Player, Pool } from '../../../common/types';
 
 export interface PoolViewerProps {
@@ -6,20 +7,26 @@ export interface PoolViewerProps {
 }
 
 const PoolViewer = ({ pool }: PoolViewerProps) => {
-  const sortedPool = pool.sort((a, b) => b.wins - a.wins);
+  const sortedPool = _.orderBy(pool, ['wins'], ['desc']);
   return (
-    <div className='grid grid-cols-3'>
-      {sortedPool.map(({ player, wins }, index) => {
+    <div className='grid grid-cols-3 h-full p-4 m-4 border-8 rounded-lg border-black'>
+      {sortedPool?.map(({ player, wins }, index) => {
         return (
           <>
             <div
-              className='col-span-2'
+              className={
+                `col-span-2 flex text-8xl items-center justify-center` +
+                (index === 0 ? ' text-green-500' : '')
+              }
               key={`${player.name}-${index}-pool-editor-node`}
             >
               {player.name}
             </div>
             <div
-              className='col-span-1'
+              className={
+                `col-span-1 flex text-8xl items-center justify-center` +
+                (index === 0 ? ' text-green-500' : '')
+              }
               key={`${player.name}-${index}-pool-wins-editor-node`}
             >
               {wins}

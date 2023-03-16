@@ -24,13 +24,8 @@ const baseConfig = {
         test: /\.css$/,
         use: [
           'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 3,
-              modules: false,
-            },
-          },
+          'css-loader',
+          'postcss-loader',
         ],
       },
       {

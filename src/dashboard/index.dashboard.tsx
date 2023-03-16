@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { useReplicantValue } from '../common/useReplicant';
-import '../../tailwind.css';
+import '../common/style.css';
 import { Pool } from '../common/types';
 import { SAMPLE_POOL } from '../common/samples';
 import PoolsEditor, {

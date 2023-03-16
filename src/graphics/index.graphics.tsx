@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { useOnlyReplicantValue } from '../common/useReplicant';
 import { Name } from './Name';
-import '../../tailwind.css';
+import '../common/style.css';
 import PoolViewer from './components/PoolViewer/PoolViewer';
 import { Pool } from '../common/types';
 import { SAMPLE_POOL } from '../common/samples';
