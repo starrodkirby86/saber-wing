@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
+    "@faker-js/faker": "^7.6.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -69,6 +70,8 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/react-icons": "^1.2.0",
     "@radix-ui/react-select": "^1.2.1",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",

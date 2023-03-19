@@ -4,15 +4,15 @@ import { useReplicantValue } from '../common/useReplicant';
 import '../common/style.css';
 import { Pool } from '../common/types';
 import { SAMPLE_POOL } from '../common/samples';
-import PoolsEditor, {
-  PoolEditorFormInput,
-} from './components/PoolManager/PoolsEditor';
+import MultiPoolEditor, {
+  MultiPoolEditorFormInput,
+} from './components/PoolManager/MultiPoolEditor';
 
 function Dashboard() {
   const [pool, setPool] = useReplicantValue<Pool>('pool', undefined, {
     defaultValue: SAMPLE_POOL,
   });
-  const submitHandler = ({ pool: data }: PoolEditorFormInput) => {
+  const submitHandler = ({ pool: data }: MultiPoolEditorFormInput) => {
     const newData: Pool = pool.map((poolRow, index) => {
       return {
         ...poolRow,
@@ -26,7 +26,7 @@ function Dashboard() {
     setPool(newData);
   };
 
-  return <PoolsEditor pool={pool} submitHandler={submitHandler} />;
+  return <MultiPoolEditor pool={pool} submitHandler={submitHandler} />;
 }
 
 ReactDOM.render(<Dashboard />, document.getElementById('root'));

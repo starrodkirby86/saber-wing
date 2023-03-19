@@ -1,37 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pool } from '../../../common/types';
 import { useForm, useFieldArray } from 'react-hook-form';
+import MultiPoolEditorSelect from './MultiPoolEditorSelect';
 
-export interface PoolsEditorProps {
-  pool: Pool;
-  submitHandler: (data: PoolEditorFormInput) => void;
+export interface MultiPoolEditorProps {
+  pools: Pool[];
+  submitHandler: (data: MultiPoolEditorFormInput, currentPoolIndex: number) => void;
 }
 
-export type PoolEditorFormInput = {
+export type MultiPoolEditorFormInput = {
   pool: {
     name: string;
     wins: number;
   }[];
 };
 
-const PoolsEditor = ({ pool, submitHandler }: PoolsEditorProps) => {
+const MultiPoolEditor = ({ pools, submitHandler }: MultiPoolEditorProps) => {
+  const [currentPoolIndex, setCurrentPoolIndex] = useState(0);
+  const [currentPool, setCurrentPool] = useState(pools[0]);
+
   const {
     register,
     control,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<PoolEditorFormInput>({
+  } = useForm<MultiPoolEditorFormInput>({
     defaultValues: {
-      pool: pool.map(({ player, wins }) => ({ name: player.name, wins })),
+      pool: currentPool.map(({ player, wins }) => ({ name: player.name, wins })),
     },
   });
+  
   const { fields, append, remove } = useFieldArray({
     name: 'pool',
     control,
   });
-  const onSubmit = (data: PoolEditorFormInput) => submitHandler(data);
-  return (
-    <div className='border rounded-md p-2'>
+
+  useEffect(() => {
+    const newCurrentPool = pools[currentPoolIndex];
+    setCurrentPool(newCurrentPool);
+    reset({
+      pool: newCurrentPool.map(({ player, wins }) => ({ name: player.name, wins })),
+    })
+  }, [currentPoolIndex]);
+
+
+  const onSubmit = (data: MultiPoolEditorFormInput) => submitHandler(data, currentPoolIndex);
+  return (<>
+    <div className="bg-blue-700 px-4 py-2 flex items-center rounded-t-lg">
+      <h1 className="font-bold text-xl text-white">Group Pools Editor</h1>
+    </div>
+    <div className='border rounded-b-md p-2'>
+      <div>
+        <div className='text-xs text-slate-500'>
+          Current Pool
+        </div>
+        <MultiPoolEditorSelect poolLength={pools.length} currentValue={currentPoolIndex.toString()} selectHandler={(value) => setCurrentPoolIndex(parseInt(value))} />
+      </div>
+      <br />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           {fields.map((field, index) => {
@@ -80,12 +106,13 @@ const PoolsEditor = ({ pool, submitHandler }: PoolsEditorProps) => {
           })}
         </div>
         <br />
-        <button className='rounded-md p-2 bg-blue-700 text-white' type='submit'>
+        <button className='rounded-md px-7 py-2 bg-blue-700 text-white' type='submit'>
           Submit
         </button>
       </form>
     </div>
+  </>
   );
 };
 
-export default PoolsEditor;
+export default MultiPoolEditor;
