@@ -26,9 +26,9 @@ const Template: Story<MultiPoolEditorProps> = (args) => {
     });
     setCurrentPoolIndex(currentPoolIndex);
     setPools([
-      ..._.slice(pools, 0, currentPoolIndex),
+      ...pools.slice(0, currentPoolIndex),
       newData,
-      ..._.slice(pools, currentPoolIndex + 1),
+      ...pools.slice(currentPoolIndex + 1),
     ]);
   };
 

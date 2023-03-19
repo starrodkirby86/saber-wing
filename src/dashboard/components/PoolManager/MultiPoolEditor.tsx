@@ -50,7 +50,7 @@ const MultiPoolEditor = ({ pools, submitHandler }: MultiPoolEditorProps) => {
     <div className="bg-blue-700 px-4 py-2 flex items-center rounded-t-lg">
       <h1 className="font-bold text-xl text-white">Group Pools Editor</h1>
     </div>
-    <div className='border rounded-b-md p-2'>
+    <div className='border rounded-b-md p-2 bg-white'>
       <div>
         <div className='text-xs text-slate-500'>
           Current Pool
@@ -92,6 +92,7 @@ const MultiPoolEditor = ({ pools, submitHandler }: MultiPoolEditorProps) => {
                       <input
                         placeholder='Wins'
                         type='number'
+                        step='0.5'
                         {...register(`pool.${index}.wins` as const, {
                           valueAsNumber: true,
                           required: true,
