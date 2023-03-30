@@ -8,8 +8,9 @@ import MultiPoolEditor, {
   MultiPoolEditorFormInput,
 } from './components/PoolManager/MultiPoolEditor';
 import ReactJson from 'react-json-view';
+import Dashboard from './components/Dashboard';
 
-function Dashboard() {
+function NodeCGDashboard() {
   const [pools, setPools] = useReplicantValue<Pool[]>('pools', undefined, {
     defaultValue: SAMPLE_POOLS,
   });
@@ -37,18 +38,8 @@ function Dashboard() {
   };
 
   return (
-    <div>
-      <MultiPoolEditor pools={pools} submitHandler={submitHandler} />
-      <div>
-        <div className="bg-blue-700 px-4 py-2 flex items-center rounded-t-lg">
-          <h1 className="font-bold text-xl text-white">Pools Viewer</h1>
-        </div>
-        <div className='border rounded-b-md p-2 bg-white'>
-          <ReactJson src={pools} />
-        </div>
-      </div>
-    </div>
+    <Dashboard pools={pools} submitHandler={submitHandler} />
   );
 }
 
-ReactDOM.render(<Dashboard />, document.getElementById('root'));
+ReactDOM.render(<NodeCGDashboard />, document.getElementById('root'));
