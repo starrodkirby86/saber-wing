@@ -18,7 +18,7 @@ const PoolViewer = ({ pool }: PoolViewerProps) => {
                 `col-span-2 flex text-8xl items-center justify-center` +
                 (index === 0 ? ' text-green-500' : '')
               }
-              key={`${player.name}-${index}-pool-editor-node`}
+              key={`${player.name}-${index}-pool-viewer-node`}
             >
               {player.name}
             </div>
@@ -27,7 +27,7 @@ const PoolViewer = ({ pool }: PoolViewerProps) => {
                 `col-span-1 flex text-8xl items-center justify-center` +
                 (index === 0 ? ' text-green-500' : '')
               }
-              key={`${player.name}-${index}-pool-wins-editor-node`}
+              key={`${player.name}-${index}-pool-wins-viewer-node`}
             >
               {wins}
             </div>
