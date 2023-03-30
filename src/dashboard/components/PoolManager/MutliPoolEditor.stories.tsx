@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Pool } from '../../../common/types';
-import MultiPoolEditor, { MultiPoolEditorFormInput, MultiPoolEditorProps } from './MultiPoolEditor';
+import MultiPoolEditor, { MultiPoolEditorFormInput, MultiPoolEditorProps } from '.';
 import { SAMPLE_POOLS } from '../../../common/samples';
 import PoolViewer from '../../../graphics/components/PoolViewer';
 

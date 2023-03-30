@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { SAMPLE_POOLS } from '../../../common/samples';
 import Dashboard, { DashboardProps } from '.';
-import { MultiPoolEditorFormInput } from '../PoolManager/MultiPoolEditor';
+import { MultiPoolEditorFormInput } from '../PoolManager';
 
 export default {
   title: 'Dashboard',

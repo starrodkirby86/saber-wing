@@ -4,7 +4,7 @@ import { Pool } from '../../../common/types';
 import { SAMPLE_POOLS } from '../../../common/samples';
 import MultiPoolEditor, {
     MultiPoolEditorFormInput,
-} from '../../components/PoolManager/MultiPoolEditor';
+} from '../PoolManager';
 import ReactJson from 'react-json-view';
 
 export interface DashboardProps {

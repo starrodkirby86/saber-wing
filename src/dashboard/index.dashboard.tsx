@@ -6,7 +6,7 @@ import { Pool } from '../common/types';
 import { SAMPLE_POOLS } from '../common/samples';
 import MultiPoolEditor, {
   MultiPoolEditorFormInput,
-} from './components/PoolManager/MultiPoolEditor';
+} from './components/PoolManager';
 import ReactJson from 'react-json-view';
 import Dashboard from './components/Dashboard';
 
