@@ -10,10 +10,11 @@ Main Gameplay:
  On OBS I need a current time plugin and an uptime plugin
 
 Pool Bracket Scene:
-- Do the basic programming for setting up the pools
-- We need to have six displayable pools on screen, so use the flexbox layouting or something
-- The module itself should be a light version of the pool viewer
-- Then we need another component that's on Storybook showing all the modules organized together
+- ✅ Do the basic programming for setting up the pools
+- ✅ We need to have six displayable pools on screen, so use the flexbox layouting or something
+- ✅ The module itself should be a light version of the pool viewer
+- ✅ Then we need another component that's on Storybook showing all the modules organized together
+- NEXT: Dashboard needs the pool range for this scene. For example, displaying Pool 1 through 7.
 
 Top 6 Brackets:
 - the simplest thing I can do is just having the matches be editable like a form

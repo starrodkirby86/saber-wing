@@ -94,7 +94,12 @@
     ],
     "graphics": [
       {
-        "file": "graphics.html",
+        "file": "scenes/pool_viewer/pool_viewer.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "scenes/bracket_pool_viewer/bracket_pool_viewer.html",
         "width": 1280,
         "height": 720
       }

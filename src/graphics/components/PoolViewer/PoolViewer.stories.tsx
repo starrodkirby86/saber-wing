@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import PoolViewer, { PoolViewerProps } from './PoolViewer';
+import PoolViewer, { PoolViewerProps } from '.';
 
 export default {
   title: 'PoolViewer',

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { Pool } from '../../../common/types';
 import MultiPoolEditor, { MultiPoolEditorFormInput, MultiPoolEditorProps } from './MultiPoolEditor';
 import { SAMPLE_POOLS } from '../../../common/samples';
-import PoolViewer from '../../../graphics/components/PoolViewer/PoolViewer';
+import PoolViewer from '../../../graphics/components/PoolViewer';
 
 export default {
   title: 'MultiPoolEditor',

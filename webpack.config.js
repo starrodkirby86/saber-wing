@@ -54,12 +54,12 @@ const baseConfig = {
     new ForkTsCheckerWebpackPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment &&
-      new ReactRefreshWebpackPlugin({
-        overlay: {
-          sockIntegration: 'wds',
-          sockPort: 8080,
-        },
-      }),
+    new ReactRefreshWebpackPlugin({
+      overlay: {
+        sockIntegration: 'wds',
+        sockPort: 8080,
+      },
+    }),
   ].filter(Boolean),
 };
 
@@ -76,7 +76,7 @@ function makeConfig(kind, name) {
     name: name,
     entry: [
       require.resolve('webpack-dev-server/client') +
-        `?http://0.0.0.0:${wsPort}`,
+      `?http://0.0.0.0:${wsPort}`,
       `./src/${kind}/index.${name}.tsx`,
     ],
     output: {
@@ -102,23 +102,22 @@ function makeConfig(kind, name) {
   });
 }
 
-const dashboards = fs
-  .readdirSync(path.join(__dirname, 'src', 'dashboard'))
+const importFs = (name) => fs
+  .readdirSync(path.join(__dirname, 'src', name))
   .map((x) => x.match(/index\.(.+)\.tsx?$/i))
   .filter(Boolean)
   .map((x) => x[1])
-  .map((x) => makeConfig('dashboard', x));
+  .map((x) => makeConfig(name, x));
 
-const graphics = fs
-  .readdirSync(path.join(__dirname, 'src', 'graphics'))
-  .map((x) => x.match(/index\.(.+)\.tsx?$/i))
-  .filter(Boolean)
-  .map((x) => x[1])
-  .map((x) => makeConfig('graphics', x));
+const dashboards = importFs('dashboard');
+
+const scenes = ['bracket_pool_viewer', 'pool_viewer'].map((scene) => importFs(`graphics/scenes/${scene}`)[0]);
+
+
 
 const config = [
   ...dashboards,
-  ...graphics,
+  ...scenes,
   {
     name: 'extension',
     mode: 'development',

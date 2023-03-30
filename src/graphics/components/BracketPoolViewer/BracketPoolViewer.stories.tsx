@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import BracketPoolViewer, { BracketPoolViewerProps } from './BracketPoolViewer';
+import BracketPoolViewer, { BracketPoolViewerProps } from '.';
 import { SAMPLE_POOLS } from '../../../common/samples';
 import _ from 'lodash';
 

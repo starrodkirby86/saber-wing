@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useOnlyReplicantValue } from '../common/useReplicant';
-import '../common/style.css';
-import PoolViewer from './components/PoolViewer/PoolViewer';
-import { Pool } from '../common/types';
+import { useOnlyReplicantValue } from '../../../common/useReplicant';
+import '../../../common/style.css';
+import PoolViewer from '../../components/PoolViewer';
+import { Pool } from '../../../common/types';
 
-function Graphics() {
+const ScenePoolViewer = () => {
   const pools: Pool[] = useOnlyReplicantValue('pools', undefined) || [];
   const currentPoolIndex: number = useOnlyReplicantValue('currentPoolIndex', undefined) || 0;
   return (
@@ -16,4 +16,4 @@ function Graphics() {
   );
 }
 
-ReactDOM.render(<Graphics />, document.getElementById('root'));
+ReactDOM.render(<ScenePoolViewer />, document.getElementById('root'));
