@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import { useReplicantValue } from '../common/useReplicant';
 import '../common/style.css';
 import { Pool } from '../common/types';
-import { SAMPLE_POOLS } from '../common/samples';
 import MultiPoolEditor, {
   MultiPoolEditorFormInput,
 } from './components/PoolManager';
 import ReactJson from 'react-json-view';
 import Dashboard from './components/Dashboard';
+import { MAP_POOL_DICT_TO_ARRAYS } from '../common/PLAYER_DATA';
 
 function NodeCGDashboard() {
   const [pools, setPools] = useReplicantValue<Pool[]>('pools', undefined, {
-    defaultValue: SAMPLE_POOLS,
+    defaultValue: MAP_POOL_DICT_TO_ARRAYS(),
   });
 
   const [currentPoolIndex, setCurrentPoolIndex] = useReplicantValue<number>('currentPoolIndex', undefined, {
@@ -25,6 +25,19 @@ function NodeCGDashboard() {
       player2: 'SUISEI06',
       player1Wins: '0',
       player2Wins: '0',
+    },
+  });
+
+  const [commentaryReplicant, setCommentaryReplicant] = useReplicantValue<{ leftCommentator: Record<string, string>, rightCommentator: Record<string, string> }>('commentary', undefined, {
+    defaultValue: {
+      leftCommentator: {
+        name: 'a',
+        handle: 'b'
+      },
+      rightCommentator: {
+        name: 'a',
+        handle: 'b'
+      },
     },
   });
 
@@ -51,8 +64,21 @@ function NodeCGDashboard() {
     setMainGameplayReplicant(data);
   };
 
+  const commentarySubmitHandler = (data: Record<string, string>) => {
+    setCommentaryReplicant({
+      leftCommentator: {
+        name: data.commentatorA,
+        handle: data.commentatorAHandle,
+      },
+      rightCommentator: {
+        name: data.commentatorB,
+        handle: data.commentatorBHandle,
+      },
+    });
+  };
+
   return (
-    <Dashboard pools={pools} submitHandler={submitHandler} mainGameplaySubmitHandler={mainGameplaySubmitHandler} />
+    <Dashboard pools={pools} submitHandler={submitHandler} mainGameplaySubmitHandler={mainGameplaySubmitHandler} commentarySubmitHandler={commentarySubmitHandler} />
   );
 }
 

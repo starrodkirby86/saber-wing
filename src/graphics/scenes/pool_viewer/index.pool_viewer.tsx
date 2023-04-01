@@ -9,10 +9,9 @@ const ScenePoolViewer = () => {
   const pools: Pool[] = useOnlyReplicantValue('pools', undefined) || [];
   const currentPoolIndex: number = useOnlyReplicantValue('currentPoolIndex', undefined) || 0;
   return (
-    <>
-      <h1>Current Pool Standings</h1>
+    <div className='h-5/6'>
       <PoolViewer pool={pools[currentPoolIndex]} />
-    </>
+    </div>
   );
 }
 

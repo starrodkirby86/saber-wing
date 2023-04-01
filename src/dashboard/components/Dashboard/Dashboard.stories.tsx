@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { SAMPLE_POOLS } from '../../../common/samples';
 import Dashboard, { DashboardProps } from '.';
 import { MultiPoolEditorFormInput } from '../PoolManager';
+import { MAP_POOL_DICT_TO_ARRAYS } from '../../../common/PLAYER_DATA';
 
 export default {
   title: 'Dashboard',
@@ -16,11 +16,11 @@ const Template: Story<DashboardProps> = (args) => {
 
   const testSubmitHandler = (data: any) => { console.log('for layouting only') }
 
-  return (<Dashboard pools={args.pools} submitHandler={submitHandler} mainGameplaySubmitHandler={testSubmitHandler} />)
+  return (<Dashboard pools={args.pools} submitHandler={submitHandler} mainGameplaySubmitHandler={testSubmitHandler} commentarySubmitHandler={testSubmitHandler} />)
 };
 
 export const defaultStory = Template.bind({});
 
 defaultStory.args = {
-  pools: SAMPLE_POOLS,
+  pools: MAP_POOL_DICT_TO_ARRAYS(),
 };

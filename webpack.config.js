@@ -111,7 +111,7 @@ const importFs = (name) => fs
 
 const dashboards = importFs('dashboard');
 
-const scenes = ['bracket_pool_viewer', 'pool_viewer'].map((scene) => importFs(`graphics/scenes/${scene}`)[0]);
+const scenes = ['bracket_pool_viewer', 'bracket_pool_viewer_b', 'bracket_pool_viewer_c', 'pool_viewer'].map((scene) => importFs(`graphics/scenes/${scene}`)[0]);
 
 
 

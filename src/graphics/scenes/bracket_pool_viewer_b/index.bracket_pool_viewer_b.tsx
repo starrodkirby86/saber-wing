@@ -6,11 +6,11 @@ import '../../../common/style.css';
 import { Pool } from '../../../common/types';
 import BracketPoolViewer from '../../components/BracketPoolViewer';
 
-const SceneBracketPoolViewer = () => {
+const SceneBracketPoolViewerB = () => {
   const pools: Pool[] = useOnlyReplicantValue('pools', undefined) || [];
   return (
-    <BracketPoolViewer pools={_.take(pools, 6)} />
+    <BracketPoolViewer pools={_.slice(pools, 6, 13)} />
   );
 };
 
-ReactDOM.render(<SceneBracketPoolViewer />, document.getElementById('root'));
+ReactDOM.render(<SceneBracketPoolViewerB />, document.getElementById('root'));

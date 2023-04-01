@@ -19,17 +19,17 @@ const MiniPoolViewer = ({ pool, index }: { pool: Pool, index: number }) => {
   const sortedPool = _.orderBy(pool, ['wins'], ['desc']);
   return (
     <div className='p-4 h-full bg-transparent'>
-      <div className="bg-blue-700 px-4 py-2 rounded-t-lg">
-        <h1 className="font-bold text-xl text-white">Pool {index + 1}</h1>
+      <div className="bg-[#cb8e52] px-4 py-2 rounded-t-lg">
+        <h1 className="font-bold text-xl text-white font-[Poppins]">POOL {index + 1}</h1>
       </div>
-      <div className='grid grid-cols-3 h-full py-2 rounded-b-lg border-l-4 border-r-4 border-b-4 border-black'>
+      <div className='grid grid-cols-3 h-full py-2 rounded-b-lg border-l-4 border-r-4 border-b-4 border-[#503828]'>
         {sortedPool?.map(({ player, wins }, index) => {
           return (
             <>
               <div
                 className={
-                  `col-span-2 flex items-center justify-center` +
-                  (index === 0 ? ' text-green-500' : '')
+                  `col-span-2 flex items-center justify-center font-[Poppins]` +
+                  (index === 0 ? ' text-white bg-[#503828]' : ' text-[#282828]')
                 }
                 key={`${player.name}-${index}-pool-viewer-node`}
               >
@@ -37,8 +37,8 @@ const MiniPoolViewer = ({ pool, index }: { pool: Pool, index: number }) => {
               </div>
               <div
                 className={
-                  `col-span-1 flex items-center justify-center` +
-                  (index === 0 ? ' text-green-500' : '')
+                  `col-span-1 flex items-center justify-center font-[Poppins]` +
+                  (index === 0 ? ' text-white bg-[#503828]' : ' text-[#282828]')
                 }
                 key={`${player.name}-${index}-pool-wins-viewer-node`}
               >
