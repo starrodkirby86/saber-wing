@@ -4,6 +4,7 @@ import { Player, Pool } from '../../../common/types';
 
 export interface BracketPoolViewerProps {
   pools: Pool[];
+  offset?: number;
 }
 
 // TODO: BRACKET POOL SCENE
@@ -52,12 +53,12 @@ const MiniPoolViewer = ({ pool, index }: { pool: Pool, index: number }) => {
   )
 };
 
-const BracketPoolViewer = ({ pools }: BracketPoolViewerProps) => {
+const BracketPoolViewer = ({ pools, offset }: BracketPoolViewerProps) => {
   return (
     <div className='grid grid-cols-3 gap-x-4 gap-y-12'>
       {
         pools.map((pool, index) => (
-          <MiniPoolViewer key={`bracket-pool-${index}`} pool={pool} index={index} />
+          <MiniPoolViewer key={`bracket-pool-${index}`} pool={pool} index={index + (offset || 0)} />
         ))
       }
     </div>

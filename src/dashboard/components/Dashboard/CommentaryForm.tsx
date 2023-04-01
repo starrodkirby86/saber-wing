@@ -50,7 +50,23 @@ return (
             id="input-field"
             {...register("commentatorBHandle")}
         />
-        <button className="rounded-md px-7 py-2 bg-pink-700 text-white" type="submit">Submit</button>
+        <button className="
+  bg-pink-500 
+  hover:bg-pink-700 
+  text-white 
+  font-bold 
+  py-2 
+  px-4 
+  rounded 
+  focus:outline-none 
+  focus:shadow-outline 
+  transform 
+  transition 
+  duration-500 
+  ease-in-out 
+  hover:-translate-y-1 
+  hover:scale-110
+" type="submit">Submit</button>
     </form>
 );
 }

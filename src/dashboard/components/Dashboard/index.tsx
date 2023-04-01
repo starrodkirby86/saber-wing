@@ -13,9 +13,10 @@ export interface DashboardProps {
     submitHandler: (data: MultiPoolEditorFormInput, currentPoolIndex: number) => void;
     mainGameplaySubmitHandler: (data: any) => void;
     commentarySubmitHandler: (data: any) => void;
+    resetPoolsHandler: () => void;
 };
 
-const Dashboard = ({ pools, submitHandler, mainGameplaySubmitHandler, commentarySubmitHandler }: DashboardProps) => {
+const Dashboard = ({ pools, submitHandler, mainGameplaySubmitHandler, commentarySubmitHandler, resetPoolsHandler }: DashboardProps) => {
     return (
         <div>
             <MultiPoolEditor pools={pools} submitHandler={submitHandler} />
@@ -46,6 +47,8 @@ const Dashboard = ({ pools, submitHandler, mainGameplaySubmitHandler, commentary
                     <ReactJson src={pools} />
                 </div>
             </div>
+            <br />
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={resetPoolsHandler}>RESET POOLS</button>
         </div>
     );
 };

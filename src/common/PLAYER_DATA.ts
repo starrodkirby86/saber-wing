@@ -219,8 +219,12 @@ const POOL_ORDER = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12
 
 export const MAP_POOL_DICT_TO_ARRAYS = () => POOL_ORDER.map(key => {
     const pool = PLAYERS_ARRANGED_BY_POOL[key];
-    return pool.map((playerName: string) => ({
+    const poolToAdd = pool.map((playerName: string) => ({
         player: { name: playerName },
         wins: 0,
     }));
+    if (key !== '1' && key !== 'Top 6') {
+        poolToAdd.push({ player: { name: '-' }, wins: 0 });
+    }
+    return poolToAdd;
 })

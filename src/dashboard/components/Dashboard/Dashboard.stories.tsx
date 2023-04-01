@@ -16,7 +16,7 @@ const Template: Story<DashboardProps> = (args) => {
 
   const testSubmitHandler = (data: any) => { console.log('for layouting only') }
 
-  return (<Dashboard pools={args.pools} submitHandler={submitHandler} mainGameplaySubmitHandler={testSubmitHandler} commentarySubmitHandler={testSubmitHandler} />)
+  return (<Dashboard pools={args.pools} submitHandler={submitHandler} mainGameplaySubmitHandler={testSubmitHandler} commentarySubmitHandler={testSubmitHandler} resetPoolsHandler={() => console.log('foo')} />)
 };
 
 export const defaultStory = Template.bind({});

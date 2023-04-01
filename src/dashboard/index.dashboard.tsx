@@ -77,8 +77,12 @@ function NodeCGDashboard() {
     });
   };
 
+  const resetPoolsHandler = () => {
+    setPools(MAP_POOL_DICT_TO_ARRAYS());
+  }
+
   return (
-    <Dashboard pools={pools} submitHandler={submitHandler} mainGameplaySubmitHandler={mainGameplaySubmitHandler} commentarySubmitHandler={commentarySubmitHandler} />
+    <Dashboard pools={pools} submitHandler={submitHandler} mainGameplaySubmitHandler={mainGameplaySubmitHandler} commentarySubmitHandler={commentarySubmitHandler} resetPoolsHandler={resetPoolsHandler} />
   );
 }
 

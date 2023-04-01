@@ -9,7 +9,7 @@ import BracketPoolViewer from '../../components/BracketPoolViewer';
 const SceneBracketPoolViewerB = () => {
   const pools: Pool[] = useOnlyReplicantValue('pools', undefined) || [];
   return (
-    <BracketPoolViewer pools={_.slice(pools, 6, 13)} />
+    <BracketPoolViewer pools={pools.slice(6, 12)} offset={6} />
   );
 };
 
