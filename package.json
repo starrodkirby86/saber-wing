@@ -102,6 +102,31 @@
         "file": "scenes/bracket_pool_viewer/bracket_pool_viewer.html",
         "width": 1280,
         "height": 720
+      },
+      {
+        "file": "scenes/gameplay_viewer_player_1.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "scenes/gameplay_viewer_player_2.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "scenes/gameplay_viewer_player_1_wins.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "scenes/gameplay_viewer_player_2_wins.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "scenes/gameplay_viewer_current_pool.html",
+        "width": 1280,
+        "height": 720
       }
     ]
   },

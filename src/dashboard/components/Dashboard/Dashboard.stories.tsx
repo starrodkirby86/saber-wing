@@ -10,11 +10,13 @@ export default {
 } as Meta;
 
 const Template: Story<DashboardProps> = (args) => {
-      const submitHandler = ({ pool: data }: MultiPoolEditorFormInput, currentPoolIndex: number) => {
-        console.log('Does not do anything, this is for layouting only');
-      };
+  const submitHandler = ({ pool: data }: MultiPoolEditorFormInput, currentPoolIndex: number) => {
+    console.log('Does not do anything, this is for layouting only');
+  };
 
-      return (<Dashboard pools={args.pools} submitHandler={submitHandler} />)
+  const testSubmitHandler = (data: any) => { console.log('for layouting only') }
+
+  return (<Dashboard pools={args.pools} submitHandler={submitHandler} mainGameplaySubmitHandler={testSubmitHandler} />)
 };
 
 export const defaultStory = Template.bind({});

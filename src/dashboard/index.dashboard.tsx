@@ -14,8 +14,18 @@ function NodeCGDashboard() {
   const [pools, setPools] = useReplicantValue<Pool[]>('pools', undefined, {
     defaultValue: SAMPLE_POOLS,
   });
+
   const [currentPoolIndex, setCurrentPoolIndex] = useReplicantValue<number>('currentPoolIndex', undefined, {
     defaultValue: 0
+  });
+
+  const [mainGameplayReplicant, setMainGameplayReplicant] = useReplicantValue<Record<string, string>>('mainGameplay', undefined, {
+    defaultValue: {
+      player1: 'SUISEI05',
+      player2: 'SUISEI06',
+      player1Wins: '0',
+      player2Wins: '0',
+    },
   });
 
   const submitHandler = ({ pool: data }: MultiPoolEditorFormInput, currentPoolIndex: number) => {
@@ -37,8 +47,12 @@ function NodeCGDashboard() {
     ]);
   };
 
+  const mainGameplaySubmitHandler = (data: Record<string, string>) => {
+    setMainGameplayReplicant(data);
+  };
+
   return (
-    <Dashboard pools={pools} submitHandler={submitHandler} />
+    <Dashboard pools={pools} submitHandler={submitHandler} mainGameplaySubmitHandler={mainGameplaySubmitHandler} />
   );
 }
 
